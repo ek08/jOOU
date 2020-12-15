@@ -17,6 +17,7 @@ package org.joou;
 
 import java.io.ObjectStreamException;
 import java.math.BigInteger;
+import org.checkerframework.common.value.qual.PolyValue;
 
 /**
  * The <code>unsigned int</code> type
@@ -277,21 +278,29 @@ public final class UInteger extends UNumber implements Comparable<UInteger> {
     }
 
     @Override
+    @SuppressWarnings("value:return.type.incompatible") // This method returns the value of the specified number as int
+    @PolyValue
     public int intValue() {
         return (int) value;
     }
 
     @Override
+    @SuppressWarnings("value:return.type.incompatible") // This method returns the value of the specified number as long
+    @PolyValue
     public long longValue() {
         return value;
     }
 
     @Override
+    @SuppressWarnings("value:return.type.incompatible") // This method returns the value of the specified number as float
+    @PolyValue
     public float floatValue() {
         return value;
     }
 
     @Override
+    @SuppressWarnings("value:return.type.incompatible") // This method returns the value of the specified number as double
+    @PolyValue
     public double doubleValue() {
         return value;
     }
